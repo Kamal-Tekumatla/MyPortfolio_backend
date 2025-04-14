@@ -1,56 +1,126 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const nodemailer = require('nodemailer');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tekumatla Kamalakar | QA Engineer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Tekumatla Kamalakar</h1>
+    <p>QA Engineer | Automation Enthusiast | Functional Testing Expert</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors());
+  <section id="home" style="text-align: center; padding-top: 80px;">
+    <img src="C:\Users\kamal\Downloads\MyPortfolio\MyProfile_picture.jpeg" alt="Kamalakar" class="profile">
+  </section>
 
-app.post('/send-email', (req, res) => {
-  console.log('Request Body:', req.body); // Debugging: Log the request body
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Results-driven and detail-oriented Automation Tester with 3 years of experience in manual testing (1 year relevant in automation) and designing, developing, and executing automated test scripts to ensure the highest standards of software quality. Expertise in Java, Selenium, TestNG, and API testing. Strong track record of identifying defects and collaborating with development teams to improve software delivery. Committed to ensuring defect-free software and enhancing testing processes for continuous improvement.</p>
+  </section>
 
-  const { name, email, message } = req.body;
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Automation Testing: Selenium WebDriver, Java, TestNG</li>
+      <li>API Testing: RESTful APIs, Postman</li>
+      <li>Manual Testing & Functional Testing</li>
+      <li>Version Control: Git, GitHub</li>
+      <li>Bug Tracking & Issue Management: JIRA</li>
+      <li>Agile/Scrum Methodology</li>
+      <li>CI/CD: Jenkins (basic knowledge)</li>
+      <li>Tools: Eclipse, IntelliJ IDEA</li>
+      <li>Operating Systems: Windows, Linux</li>
+    </ul>
+    <div class="skills">
+      <i class="fab fa-java"></i>
+      <i class="fab fa-github"></i>
+      <i class="fas fa-bug"></i>
+      <i class="fas fa-cogs"></i>
+    </div>
+  </section>
 
-  // Format the email content
-  const mailOptions = {
-    from: 'your_actual_email@gmail.com', // Replace with your actual email
-    to: 'your_actual_email@gmail.com',   // Replace with your actual email
-    subject: 'New Portfolio Inquiry',
-    text: `
-      A recruiter has inquired from your portfolio:
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>
+        <strong>Caratred Technologies | March 2023 - November 2024</strong>
+        <p><strong>Projects:</strong> EzyGST & EzyInvoicing</p>
+        <p>As a QA Engineer at Caratred Technologies from March 2023 to November 2024, I played a vital role in ensuring the quality of EzyGST and EzyInvoicing, critical financial management applications. My core responsibility was to deliver reliable and user-friendly software through meticulous functional testing. My contributions included:</p>
+        <ul>
+          <li>Requirement Analysis: Deeply analyzing and understanding business requirements and user stories to create comprehensive test plans and functional test cases.</li>
+          <li>Functional Test Case Development: Designing and executing detailed functional test cases to validate that application functionalities met the specified requirements and user expectations.</li>
+          <li>Test Execution & Defect Reporting: Executing manual test cases, identifying, documenting, and tracking defects using bug tracking systems (e.g., Jira), and providing clear, concise defect reports.</li>
+          <li>Regression Testing: Performing thorough regression testing to ensure that new features and bug fixes did not negatively impact existing functionalities.</li>
+          <li>Collaboration & Communication: Working closely with developers, product managers, and business analysts to clarify requirements, provide feedback, and ensure timely resolution of defects.</li>
+          <li>Test Documentation: Maintaining detailed and organized test documentation, ensuring traceability between requirements, test cases, and defects.</li>
+        </ul>
+        <p>– Functional tester for hotel client GSTR-1 filing.</p>
+      </li>
+      <li>
+        <strong>Aodh Intelligence Pvt Ltd | October 2021 - February 2023</strong>
+        <p><strong>Role:</strong> QA Tester</p>
+        <p><strong>Location:</strong> Madhapur, Hyderabad</p>
+        <p><strong>Technologies Used:</strong> Selenium, TestNG, Java, API Testing, JIRA, Git</p>
+        <p>This project involved testing an AI-based diagnostic system for respiratory diseases. The system used machine learning models to analyze patient data and provide real-time diagnostic assistance to healthcare professionals. As a QA Tester, my role was to ensure that the system functioned correctly across all modules, including data input, AI prediction, and result presentation, while maintaining compliance with healthcare regulations.</p>
+      </li>
+      <li>Built an end-to-end Test Automation Framework using Selenium, Java, TestNG.</li>
+      <li>Integrated Cucumber for BDD with detailed reporting.</li>
+      <li>Implemented Git for source control and CI with Jenkins.</li>
+    </ul>
+  </section>
 
-      Name: ${name}
-      Email: ${email}
-      Message: ${message}
+  <section id="resume">
+    <h2>Resume</h2>
+    <p><a class="hire-btn" href="C:\Users\kamal\Downloads\MyPortfolio\Kamalakar_Qa_Resume_April_2025.pdf" download>Download My Resume</a></p>
+  </section>
 
-      Please respond to this inquiry as soon as possible.
-    `
-  };
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><strong>Phone:</strong> 8096074184</p>
+    <p><strong>Email:</strong> kamaltekumatla9296@gmail.com</p>
+    <p><strong>Location:</strong> Shamshabad, Hyderabad, Telangana, India</p>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button class="hire-btn" type="submit">Send Message</button>
+    </form>
+  </section>
 
-  // Nodemailer code
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'your_actual_email@gmail.com', // Replace with your actual email
-      pass: process.env.EMAIL_PASS // Use your Gmail App Password from Railway.app env vars
-    }
-  });
+  <script>
+    document.querySelector('.contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission (crucial!)
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error); // Improved error logging
-      console.error(error.stack); // Log the stack trace
-      res.status(500).send('Error sending email');
-    } else {
-      console.log('Email sent: ' + info.response);
-      res.send('Email sent successfully');
-    }
-  });
-});
+      const formData = new FormData(event.target); // Get form data
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+      fetch('https://cooperative-mindfulness-production.up.railway.app/send-email', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Message sent successfully!');
+          event.target.reset(); // Clear the form
+        } else {
+          alert('Error sending message.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Error sending message.');
+      });
+    });
+  </script>
+</body>
+</html>
