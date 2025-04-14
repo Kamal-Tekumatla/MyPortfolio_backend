@@ -1,39 +1,33 @@
-// api/send-email.js
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
-async function handler(req, res) {
-    if (req.method === 'POST') {
-        try {
-            console.log('Attempting to send explicit Nodemailer email...');
+module.exports = async (req, res) => {
+  if (req.method !== "POST") {
+    return res.status(405).send("Only POST requests allowed");
+  }
 
-            // Configure Nodemailer transporter
-            const transporter = nodemailer.createTransport({
-                service: 'gmail', // or your email service
-                auth: {
-                    user: process.env.EMAIL_USER, // Your email address
-                    pass: process.env.EMAIL_PASS, // Your email password or app password
-                },
-            });
+  const { name, email, message } = req.body;
 
-            // Email options
-            const mailOptions = {
-                from: process.env.EMAIL_USER,
-                to: process.env.EMAIL_RECIPIENT, // Recipient email address
-                subject: 'Explicit Nodemailer Test',
-                text: 'This is a test email from explicit Nodemailer.',
-            };
+  try {
+    // Email transporter
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS
+      }
+    });
 
-            // Send the email
-            await transporter.sendMail(mailOptions);
+    // Email options
+    await transporter.sendMail({
+      from: process.env.GMAIL_USER,
+      to: process.env.GMAIL_USER,
+      subject: `New Enquiry from ${name}`,
+      text: `Email: ${email}\n\nMessage:\n${message}`
+    });
 
-            res.send('Explicit Nodemailer email test successful.');
-        } catch (error) {
-            console.error('Error sending explicit Nodemailer email:', error);
-            res.status(500).send('Error sending explicit Nodemailer email.');
-        }
-    } else {
-        res.status(405).send('Method Not Allowed');
-    }
-}
-
-module.exports = handler;
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error("Email failed:", error);
+    return res.status(500).json({ error: "Email send failed" });
+  }
+};
