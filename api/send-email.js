@@ -8,7 +8,6 @@ module.exports = async (req, res) => {
   const { name, email, message } = req.body;
 
   try {
-    // Email transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -17,7 +16,6 @@ module.exports = async (req, res) => {
       }
     });
 
-    // Email options
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
       to: process.env.GMAIL_USER,
@@ -25,9 +23,9 @@ module.exports = async (req, res) => {
       text: `Email: ${email}\n\nMessage:\n${message}`
     });
 
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true, message: "Email sent!" });
   } catch (error) {
-    console.error("Email failed:", error);
-    return res.status(500).json({ error: "Email send failed" });
+    console.error("Email Error:", error);
+    return res.status(500).json({ error: "Failed to send email" });
   }
 };
