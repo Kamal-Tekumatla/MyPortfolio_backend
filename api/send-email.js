@@ -30,4 +30,6 @@ app.post('/send-email', async (req, res) => {
     }
 });
 
-module.exports = app;
+module.exports = async (req, res) => {
+    await app(req, res);
+};
