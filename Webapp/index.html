@@ -99,38 +99,40 @@
     </section>
 
     <script>
-		document.querySelector('.contact-form').addEventListener('submit', function(event) {
-		    event.preventDefault();
+		<script>
+		    document.querySelector('.contact-form').addEventListener('submit', function(event) {
+		        event.preventDefault();
 
-		    const form = event.target;
-		    const data = {
-		        name: form.elements.name.value,
-		        email: form.elements.email.value,
-		        message: form.elements.message.value
-		    };
+		        const form = event.target;
+		        const data = {
+		            name: form.elements.name.value,
+		            email: form.elements.email.value,
+		            message: form.elements.message.value
+		        };
 
-		    console.log('Data (JSON):', data);
+		        console.log('Data (JSON):', data);
 
-		    fetch('mmy-portfolio-backend-tekumatla-kamalakars-projects.vercel.app/api/send-email', {
-		        method: 'POST',
-		        headers: {
-		            'Content-Type': 'application/json' // Set the Content-Type header
-		        },
-		        body: JSON.stringify(data) // Send the data as JSON
-		    })
-		    .then(response => {
-		        if (response.ok) {
-		            alert('Message sent successfully!');
-		            // event.target.reset(); // Commented out reset
-		        } else {
+		        fetch('https://my-portfolio-backend-tekumatla-kamalakars-projects.vercel.app/api/send-email', {
+		            method: 'POST',
+		            headers: {
+		                'Content-Type': 'application/json' // Set the Content-Type header
+		            },
+		            body: JSON.stringify(data) // Send the data as JSON
+		        })
+		        .then(response => {
+		            if (response.ok) {
+		                alert('Message sent successfully!');
+		                // event.target.reset(); // Commented out reset
+		            } else {
+		                alert('Error sending message.');
+		            }
+		        })
+		        .catch(error => {
+		            console.error('Error:', error);
 		            alert('Error sending message.');
-		        }
-		    })
-		    .catch(error => {
-		        console.error('Error:', error);
-		        alert('Error sending message.');
+		        });
 		    });
-		});
+		</script>
     </script>
 </body>
 </html>
