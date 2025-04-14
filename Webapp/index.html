@@ -99,35 +99,38 @@
     </section>
 
     <script>
-        document.querySelector('.contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+		document.querySelector('.contact-form').addEventListener('submit', function(event) {
+		    event.preventDefault();
 
-            console.log('Event Target:', event.target); // Log the form element
+		    const form = event.target;
+		    const data = {
+		        name: form.elements.name.value,
+		        email: form.elements.email.value,
+		        message: form.elements.message.value
+		    };
 
-            const formData = new FormData(event.target);
+		    console.log('Data (JSON):', data);
 
-            console.log('Form Data:');
-            for (const pair of formData.entries()) {
-                console.log(pair[0], pair[1]); // Log key-value pairs
-            }
-
-            fetch('https://cooperative-mindfulness-production.up.railway.app/send-email', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Message sent successfully!');
-                    // event.target.reset(); // Commented out reset
-                } else {
-                    alert('Error sending message.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error sending message.');
-            });
-        });
+		    fetch('https://cooperative-mindfulness-production.up.railway.app/send-email', {
+		        method: 'POST',
+		        headers: {
+		            'Content-Type': 'application/json' // Set the Content-Type header
+		        },
+		        body: JSON.stringify(data) // Send the data as JSON
+		    })
+		    .then(response => {
+		        if (response.ok) {
+		            alert('Message sent successfully!');
+		            // event.target.reset(); // Commented out reset
+		        } else {
+		            alert('Error sending message.');
+		        }
+		    })
+		    .catch(error => {
+		        console.error('Error:', error);
+		        alert('Error sending message.');
+		    });
+		});
     </script>
 </body>
 </html>
