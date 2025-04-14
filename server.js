@@ -9,12 +9,14 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/send-email', (req, res) => {
+  console.log('Request Body:', req.body); // Debugging: Log the request body
+
   const { name, email, message } = req.body;
 
   // Format the email content
   const mailOptions = {
-    from: 'your_email@gmail.com', // Replace with your Gmail email
-    to: 'your_email@gmail.com', // Replace with your Gmail email
+    from: 'your_actual_email@gmail.com', // Replace with your actual email
+    to: 'your_actual_email@gmail.com',   // Replace with your actual email
     subject: 'New Portfolio Inquiry',
     text: `
       A recruiter has inquired from your portfolio:
@@ -27,18 +29,19 @@ app.post('/send-email', (req, res) => {
     `
   };
 
-  // Nodemailer code (same as before)
+  // Nodemailer code
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'your_email@gmail.com', // Replace with your Gmail email
-      pass: process.env.EMAIL_PASS // Use your Gmail App Password
+      user: 'your_actual_email@gmail.com', // Replace with your actual email
+      pass: process.env.EMAIL_PASS // Use your Gmail App Password from Railway.app env vars
     }
   });
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log(error);
+      console.error('Error sending email:', error); // Improved error logging
+      console.error(error.stack); // Log the stack trace
       res.status(500).send('Error sending email');
     } else {
       console.log('Email sent: ' + info.response);
