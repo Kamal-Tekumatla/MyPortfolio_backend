@@ -1,57 +1,37 @@
 // api/send-email.js
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 const nodemailer = require('nodemailer');
 
-const app = express();
+module.exports = async (req, res) => {
+    if (req.method === 'POST') {
+        try {
+            console.log('Attempting to send simplified Nodemailer email...');
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors());
+            // Configure Nodemailer transporter
+            const transporter = nodemailer.createTransport({
+                service: 'gmail', // or your email service
+                auth: {
+                    user: process.env.EMAIL_USER, // Your email address
+                    pass: process.env.EMAIL_PASS, // Your email password or app password
+                },
+            });
 
-app.post('/send-email', async (req, res) => {
-    console.log('Request Body:', req.body);
+            // Email options
+            const mailOptions = {
+                from: process.env.EMAIL_USER,
+                to: process.env.EMAIL_RECIPIENT, // Recipient email address
+                subject: 'Simplified Nodemailer Test',
+                text: 'This is a test email from Nodemailer.',
+            };
 
-    const { name, email, message } = req.body;
+            // Send the email
+            await transporter.sendMail(mailOptions);
 
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Message:', message);
-
-    if (!name || !email || !message) {
-        console.log('Missing fields detected.');
-        return res.status(400).send('Missing required fields');
+            res.send('Simplified Nodemailer email test successful.');
+        } catch (error) {
+            console.error('Error sending simplified Nodemailer email:', error);
+            res.status(500).send('Error sending simplified Nodemailer email.');
+        }
+    } else {
+        res.status(405).send('Method Not Allowed');
     }
-
-    try {
-        // Configure Nodemailer transporter
-        const transporter = nodemailer.createTransport({
-            service: 'gmail', // or your email service
-            auth: {
-                user: process.env.EMAIL_USER, // Your email address
-                pass: process.env.EMAIL_PASS, // Your email password or app password
-            },
-        });
-
-        // Email options
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_RECIPIENT, // Recipient email address
-            subject: 'New Contact Form Submission',
-            text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-        };
-
-        // Send the email
-        await transporter.sendMail(mailOptions);
-
-        res.send('Email sent successfully!');
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Internal server error');
-    }
-});
-
-module.exports = (req, res) => {
-    app(req, res);
 };
