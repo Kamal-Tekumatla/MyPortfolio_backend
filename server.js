@@ -8,15 +8,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post('/send-email', (req, res) => {
-  console.log('Request Body:', req.body); // Debugging: Log the request body
+app.post('/send-email', async (req, res) => {
+  console.log('Request Body:', req.body);
 
   const { name, email, message } = req.body;
 
-  // Format the email content
+  if (!name || !email || !message) {
+    return res.status(400).send('Missing required fields');
+  }
+
   const mailOptions = {
-    from: 'your_actual_email@gmail.com', // Replace with your actual email
-    to: 'your_actual_email@gmail.com',   // Replace with your actual email
+    from: 'your_actual_email@gmail.com',
+    to: 'your_actual_email@gmail.com',
     subject: 'New Portfolio Inquiry',
     text: `
       A recruiter has inquired from your portfolio:
@@ -26,31 +29,33 @@ app.post('/send-email', (req, res) => {
       Message: ${message}
 
       Please respond to this inquiry as soon possible.
-    `
+    `,
   };
 
-  // Nodemailer code
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'your_actual_email@gmail.com', // Replace with your actual email
-      pass: process.env.EMAIL_PASS // Use your Gmail App Password from Railway.app env vars
-    }
+      user: 'your_actual_email@gmail.com',
+      pass: process.env.EMAIL_PASS,
+    },
   });
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error('Error sending email:', error); // Improved error logging
-      console.error(error.stack); // Log the stack trace
-      res.status(500).send('Error sending email');
-    } else {
-      console.log('Email sent: ' + info.response);
-      res.send('Email sent successfully');
-    }
-  });
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent: ' + info.response);
+    res.send('Email sent successfully');
+  } catch (error) {
+    console.error('Nodemailer error:', error);
+    res.status(500).send('Internal server error');
+  }
 });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+});
+
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught exception:', err);
+  process.exit(1);
 });

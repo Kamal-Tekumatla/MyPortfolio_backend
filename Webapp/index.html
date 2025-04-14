@@ -97,5 +97,30 @@
       <button class="hire-btn" type="submit">Send Message</button>
     </form>
   </section>
+
+  <script>
+    document.querySelector('.contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const formData = new FormData(event.target); // Get form data
+      
+      fetch('https://cooperative-mindfulness-production.up.railway.app/send-email', { // **Replace with your actual Railway.app URL**
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Message sent successfully!');
+          event.target.reset(); // Clear the form
+        } else {
+          alert('Error sending message.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Error sending message.');
+      });
+    });
+  </script>
 </body>
 </html>
