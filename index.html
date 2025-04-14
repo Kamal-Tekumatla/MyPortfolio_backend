@@ -6,6 +6,12 @@
     <title>Tekumatla Kamalakar | QA Engineer</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('WRLkJ-Pxt6ivw158-'); // Replace with your EmailJS Public Key
+        })();
+    </script>
 </head>
 <body>
     <header>
@@ -21,8 +27,8 @@
     </header>
 
     <section id="home" style="text-align: center; padding-top: 80px;">
-		<img src="MyProfile_picture.jpeg" alt="Kamalakar" class="profile">
-		    </section>
+        <img src="MyProfile_picture.jpeg" alt="Kamalakar" class="profile">
+    </section>
 
     <section id="about">
         <h2>About Me</h2>
@@ -99,38 +105,26 @@
     </section>
 
     <script>
-		    document.querySelector('.contact-form').addEventListener('submit', function(event) {
-		        event.preventDefault();
+        document.querySelector('.contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-		        const form = event.target;
-		        const data = {
-		            name: form.elements.name.value,
-		            email: form.elements.email.value,
-		            message: form.elements.message.value
-		        };
+            const form = event.target;
+            const data = {
+                name: form.elements.name.value,
+                email: form.elements.email.value,
+                message: form.elements.message.value
+            };
 
-		        console.log('Data (JSON):', data);
-
-		        fetch('https://my-portfolio-backend-tekumatla-kamalakars-projects.vercel.app/api/send-email', {
-		            method: 'POST',
-		            headers: {
-		                'Content-Type': 'application/json' // Set the Content-Type header
-		            },
-		            body: JSON.stringify(data) // Send the data as JSON
-		        })
-		        .then(response => {
-		            if (response.ok) {
-		                alert('Message sent successfully!');
-		                // event.target.reset(); // Commented out reset
-		            } else {
-		                alert('Error sending message.');
-		            }
-		        })
-		        .catch(error => {
-		            console.error('Error:', error);
-		            alert('Error sending message.');
-		        });
-		    });
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', data) // Replace with your Service ID and Template ID
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Message sent successfully!');
+                    form.reset();
+                }, function(error) {
+                    console.error('FAILED...', error);
+                    alert('Error sending message.');
+                });
+        });
     </script>
 </body>
 </html>
