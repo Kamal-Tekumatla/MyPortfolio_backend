@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer'); // Commented out
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -17,33 +17,13 @@ app.post('/send-email', async (req, res) => {
     return res.status(400).send('Missing required fields');
   }
 
-  const mailOptions = {
-    from: 'your_actual_email@gmail.com',
-    to: 'your_actual_email@gmail.com',
-    subject: 'New Portfolio Inquiry',
-    text: `
-      A recruiter has inquired from your portfolio:
-
-      Name: ${name}
-      Email: ${email}
-      Message: ${message}
-
-      Please respond to this inquiry as soon possible.
-    `,
-  };
-
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'your_actual_email@gmail.com',
-      pass: process.env.EMAIL_PASS,
-    },
-  });
+  // const mailOptions = { ... }; // Commented out
+  // const transporter = nodemailer.createTransport({ ... }); // Commented out
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent: ' + info.response);
-    res.send('Email sent successfully');
+    // const info = await transporter.sendMail(mailOptions); // Commented out
+    // console.log('Email sent: ' + info.response); // Commented out
+    res.send('Email functionality temporarily disabled.'); // Replace with a test message
   } catch (error) {
     console.error('Nodemailer error:', error);
     res.status(500).send('Internal server error');
