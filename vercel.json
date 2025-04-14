@@ -1,15 +1,22 @@
 {
-  "version": 2,
   "builds": [
     {
-      "src": "api/*.js",
+      "src": "WEBAPP/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/**/*.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/enquiry",
-      "dest": "/api/enquiry.js"
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/WEBAPP/$1"
     }
   ]
 }
