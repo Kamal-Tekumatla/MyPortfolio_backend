@@ -1,0 +1,9 @@
+{
+  "name": "my-portfolio-backend",
+  "version": "1.0.0",
+  "description": "Backend for my portfolio contact form",
+  "main": "send-email.js",
+  "dependencies": {
+    "nodemailer": "^6.9.10"
+  }
+}
