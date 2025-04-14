@@ -1,10 +1,10 @@
 // api/send-email.js
 const nodemailer = require('nodemailer');
 
-module.exports = async (req, res) => {
+async function handler(req, res) {
     if (req.method === 'POST') {
         try {
-            console.log('Attempting to send simplified Nodemailer email...');
+            console.log('Attempting to send explicit Nodemailer email...');
 
             // Configure Nodemailer transporter
             const transporter = nodemailer.createTransport({
@@ -19,19 +19,21 @@ module.exports = async (req, res) => {
             const mailOptions = {
                 from: process.env.EMAIL_USER,
                 to: process.env.EMAIL_RECIPIENT, // Recipient email address
-                subject: 'Simplified Nodemailer Test',
-                text: 'This is a test email from Nodemailer.',
+                subject: 'Explicit Nodemailer Test',
+                text: 'This is a test email from explicit Nodemailer.',
             };
 
             // Send the email
             await transporter.sendMail(mailOptions);
 
-            res.send('Simplified Nodemailer email test successful.');
+            res.send('Explicit Nodemailer email test successful.');
         } catch (error) {
-            console.error('Error sending simplified Nodemailer email:', error);
-            res.status(500).send('Error sending simplified Nodemailer email.');
+            console.error('Error sending explicit Nodemailer email:', error);
+            res.status(500).send('Error sending explicit Nodemailer email.');
         }
     } else {
         res.status(405).send('Method Not Allowed');
     }
-};
+}
+
+module.exports = handler;
