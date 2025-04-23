@@ -3,399 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tekumatla Kamalakar | QA Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <style>
-        /* Reset & Basics */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif; /* Modern font */
-            line-height: 1.6;
-            background: #f5f7fa;
-            color: #333;
-        }
-
-        /* Header */
-        header {
-            position: sticky;
-            top: 0;
-            width: 100%;
-            background: #fff;
-            padding: 15px 20px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .name {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1d4ed8;
-            margin-bottom: 5px;
-        }
-
-        .tagline {
-            font-size: 1.1rem;
-            color: #64748b;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .navbar {
-            display: flex;
-            gap: 25px;
-        }
-
-        .navbar a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-
-        .navbar a:hover {
-            color: #1d4ed8;
-            transform: translateY(-2px);
-            display: inline-block;
-        }
-
-        /* Hero Section */
-        #home {
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(to bottom, #e0e7ff, #ffffff);
-            padding: 40px 20px;
-        }
-
-        .profile {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid #1d4ed8;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .profile:hover {
-            transform: scale(1.05);
-        }
-
-        /* General Section Styling */
-        section {
-            padding: 60px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #1e293b;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 3px;
-            background: #1d4ed8;
-            bottom: -5px;
-            left: 0;
-        }
-
-        p, li {
-            font-size: 1rem;
-            color: #64748b;
-            line-height: 1.8;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin-top: 15px;
-        }
-
-        li {
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        li:hover {
-            transform: translateX(10px);
-        }
-
-        /* Skills Section */
-        #skills .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .skills i {
-            font-size: 2rem;
-            color: #1d4ed8;
-            transition: transform 0.3s ease;
-        }
-
-        .skills i:hover {
-            transform: scale(1.2);
-        }
-
-        /* Projects Section */
-        #projects ul li strong {
-            color: #1e293b;
-            font-weight: 600;
-        }
-
-        /* Resume Section */
-        .hire-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #1d4ed8;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .hire-btn:hover {
-            background-color: #1e40af;
-            transform: scale(1.03);
-        }
-
-        /* Contact Section */
-        #contact {
-            background: linear-gradient(to right, #e0e7ff, #ffffff);
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin: 50px auto;
-            max-width: 700px;
-        }
-
-        .contact-details {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .contact-details p {
-            font-size: 1rem;
-            color: #64748b;
-            margin: 8px 0;
-        }
-
-        .contact-details strong {
-            color: #1e293b;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 14px 16px;
-            font-size: 1rem;
-            border: 2px solid #d1d5db;
-            border-radius: 10px;
-            background-color: #fff;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: #1d4ed8;
-            box-shadow: 0 0 8px rgba(29, 78, 216, 0.2);
-        }
-
-        .contact-form textarea {
-            resize: vertical;
-        }
-
-        .contact-form .btn {
-            padding: 14px;
-            background-color: #1d4ed8;
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-form .btn:hover {
-            background-color: #1e40af;
-            transform: scale(1.03);
-        }
-
-        #form-status {
-            text-align: center;
-            font-weight: 600;
-            margin-top: 10px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .name {
-                font-size: 2rem;
-            }
-
-            .tagline {
-                font-size: 1rem;
-            }
-
-            .navbar {
-                gap: 15px;
-            }
-
-            .navbar a {
-                font-size: 0.9rem;
-            }
-
-            .profile {
-                width: 150px;
-                height: 150px;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            section {
-                padding: 40px 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            #contact {
-                padding: 25px 15px;
-            }
-        }
-    </style>
+    <title>Tekumatla Kamalakar | QA Engineer & Automation Enthusiast</title>
+    <meta name="description" content="Portfolio of Tekumatla Kamalakar, a QA Engineer with expertise in automation, functional testing, Java, and Selenium.">
+    <meta name="keywords" content="QA Engineer, Automation Tester, Selenium, Java, TestNG, API Testing, Portfolio, Tekumatla Kamalakar">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init('WRLkJ-Pxt6ivw158-');
+            emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // Replace with your actual EmailJS Public Key
         })();
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
+    <header class="main-header">
         <div class="container">
-            <h1 class="name">Tekumatla Kamalakar</h1>
-            <p class="tagline">QA Engineer • Automation Enthusiast • Functional Test Engineer</p>
-            <nav class="navbar">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#resume">Resume</a>
-                <a href="#contact">Contact</a>
+            <div class="header-titles">
+                <h1><a href="/" aria-label="Navigate to the homepage">Tekumatla Kamalakar</a></h1>
+                <p class="tagline">QA Engineer | Automation Enthusiast</p>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
-    <section id="home">
-        <img src="Portfolio_Profile_updated.jpeg" alt="Kamalakar" class="profile">
-    </section>
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <img src="Portfolio_Profile_v2.jpeg" alt="Profile picture of Kamalakar" class="profile-image">
+                <h2 class="hero-title">Hi, I'm Kamalakar Tekumatla</h2>
+                <p class="hero-subtitle">Building Quality Software Through Automation & Rigorous Testing</p>
+                </div>
+        </section>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Results-driven and detail-oriented Automation Tester with 3 years of experience in manual testing (2 years relevant in automation) and designing, developing, and executing automated test scripts to ensure the highest standards of software quality. Expertise in Java, Selenium, TestNG, and API testing. Strong track record of identifying defects and collaborating with development teams to improve software delivery. Committed to ensuring defect-free software and enhancing testing processes for continuous improvement.</p>
-    </section>
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-description">Results-driven and detail-oriented Automation Tester with 3 years of experience in manual testing (1 year relevant in automation) and designing, developing, and executing automated test scripts to ensure the highest standards of software quality. Expertise in Java, Selenium, TestNG, and API testing. Strong track record of identifying defects and collaborating with development teams to improve software delivery. Committed to ensuring defect-free software and enhancing testing processes for continuous improvement.</p>
+                </div>
+        </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Automation Testing: Selenium WebDriver, Java, TestNG</li>
-            <li>API Testing: RESTful APIs, Postman</li>
-            <li>Manual Testing & Functional Testing</li>
-            <li>Version Control: Git, GitHub</li>
-            <li>Bug Tracking & Issue Management: JIRA</li>
-            <li>Agile/Scrum Methodology</li>
-            <li>CI/CD: Jenkins (basic knowledge)</li>
-            <li>Tools: Eclipse, IntelliJ IDEA</li>
-            <li>Operating Systems: Windows, Linux</li>
-        </ul>
-        <div class="skills">
-            <i class="fab fa-java"></i>
-            <i class="fab fa-github"></i>
-            <i class="fas fa-bug"></i>
-            <i class="fas fa-cogs"></i>
-        </div>
-    </section>
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Automation Testing</h3>
+                        <ul>
+                            <li>Selenium WebDriver</li>
+                            <li>Java</li>
+                            <li>TestNG</li>
+                            </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>API Testing</h3>
+                        <ul>
+                            <li>RESTful APIs</li>
+                            <li>Postman</li>
+                            </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Testing Methodologies</h3>
+                        <ul>
+                            <li>Manual Testing</li>
+                            <li>Functional Testing</li>
+                            <li>Regression Testing</li>
+                            <li>Agile/Scrum</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Technologies</h3>
+                        <ul>
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>JIRA</li>
+                            <li>Jenkins (basic)</li>
+                            <li>Eclipse</li>
+                            <li>IntelliJ IDEA</li>
+                            <li>Windows</li>
+                            <li>Linux</li>
+                        </ul>
+                    </div>
+                    </div>
+                <div class="skills-icons">
+                    <i class="fab fa-java" aria-hidden="true" title="Java"></i>
+                    <i class="fab fa-github" aria-hidden="true" title="GitHub"></i>
+                    <i class="fas fa-bug" aria-hidden="true" title="Bug Tracking"></i>
+                    <i class="fas fa-cogs" aria-hidden="true" title="Automation"></i>
+                    </div>
+            </div>
+        </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>Caratred Technologies</strong> | March 2023 - Nov 2024</li>
-            <li><strong>Aodh Intelligence Pvt Ltd</strong> | Oct 2021 - Feb 2023</li>
-            <li>Built end-to-end automation framework using Selenium, Java, TestNG, Cucumber, Jenkins</li>
-        </ul>
-    </section>
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <ul class="projects-list">
+                    <li class="project-item">
+                        <h3>Caratred Technologies | March 2023 - November 2024</h3>
+                        <h4>Projects: EzyGST & EzyInvoicing</h4>
+                        <p>As a QA Engineer at Caratred Technologies from March 2023 to November 2024, I played a vital role in ensuring the quality of EzyGST and EzyInvoicing, critical financial management applications. My core responsibility was to deliver reliable and user-friendly software through meticulous functional testing. My contributions included:</p>
+                        <ul>
+                            <li>Requirement Analysis: Deeply analyzing and understanding business requirements and user stories to create comprehensive test plans and functional test cases.</li>
+                            <li>Functional Test Case Development: Designing and executing detailed functional test cases to validate that application functionalities met the specified requirements and user expectations.</li>
+                            <li>Test Execution & Defect Reporting: Executing manual test cases, identifying, documenting, and tracking defects using bug tracking systems (e.g., Jira), and providing clear, concise defect reports.</li>
+                            <li>Regression Testing: Performing thorough regression testing to ensure that new features and bug fixes did not negatively impact existing functionalities.</li>
+                            <li>Collaboration & Communication: Working closely with developers, product managers, and business analysts to clarify requirements, provide feedback, and ensure timely resolution of defects.</li>
+                            <li>Test Documentation: Maintaining detailed and organized test documentation, ensuring traceability between requirements, test cases, and defects.</li>
+                        </ul>
+                        <p class="technologies-used">Technologies: Manual Testing, Functional Testing, Jira</p>
+                        </li>
+                    <li class="project-item">
+                        <h3>Aodh Intelligence Pvt Ltd | October 2021 - February 2023</h3>
+                        <h4>Role: QA Tester</h4>
+                        <p>This project involved testing an AI-based diagnostic system for respiratory diseases. The system used machine learning models to analyze patient data and provide real-time diagnostic assistance to healthcare professionals. As a QA Tester, my role was to ensure that the system functioned correctly across all modules, including data input, AI prediction, and result presentation, while maintaining compliance with healthcare regulations.</p>
+                        <p class="technologies-used">Technologies: Selenium, TestNG, Java, API Testing, JIRA, Git</p>
+                        </li>
+                    <li class="project-item">
+                        <h3>Personal Project: Test Automation Framework</h3>
+                        <p>Built an end-to-end Test Automation Framework using Selenium, Java, TestNG.</p>
+                        <ul>
+                            <li>Integrated Cucumber for BDD with detailed reporting.</li>
+                            <li>Implemented Git for source control and CI with Jenkins.</li>
+                        </ul>
+                        <p class="technologies-used">Technologies: Selenium, Java, TestNG, Cucumber, Jenkins, Git</p>
+                        </li>
+                </ul>
+            </div>
+        </section>
 
-    <section id="resume">
-        <h2>Resume</h2>
-        <p><a class="hire-btn" href="./Kamalakar_Qa_Resume_April_2025.pdf" download>Download My Resume</a></p>
-    </section>
+        <section id="resume" class="resume-section">
+            <div class="container">
+                <h2 class="section-title">Resume</h2>
+                <p class="resume-download">
+                    <a class="button" href="./Kamalakar_Qa_Resume_April_2025.pdf" download>Download My Resume</a>
+                </p>
+            </div>
+        </section>
 
-    <section id="contact" class="contact-section">
-        <h2>Contact</h2>
-        <div class="contact-details">
-            <p><strong>Phone:</strong> 8096074184</p>
-            <p><strong>Email:</strong> kamaltekumatla9296@gmail.com</p>
-            <p><strong>Location:</strong> Shamshabad, Hyderabad, Telangana, India</p>
-        </div>
-        <form class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button class="btn" type="submit">Send Message</button>
-        </form>
-        <div id="form-status"></div>
-    </section>
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <div class="contact-info">
+                    <p><strong>Phone:</strong> <a href="tel:+918096074184">+91 8096074184</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:kamaltekumatla9296@gmail.com">kamaltekumatla9296@gmail.com</a></p>
+                    <p><strong>Location:</strong> Shamshabad, Hyderabad, Telangana, India</p>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button class="button" type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Tekumatla Kamalakar. All rights reserved.</p>
+            </div>
+    </footer>
 
     <script>
         document.querySelector('.contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
+
             const form = event.target;
             const data = {
                 name: form.elements.name.value,
@@ -403,16 +194,14 @@
                 message: form.elements.message.value
             };
 
-            const status = document.getElementById('form-status');
-
-            emailjs.send('service_6xh9tpp', 'template_usx1hqw', data)
+            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', data) // Replace with your actual Service and Template IDs
                 .then(function(response) {
-                    status.style.color = 'green';
-                    status.textContent = 'Message sent successfully!';
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Message sent successfully!');
                     form.reset();
-                }, function(error patrimonial) {
-                    status.style.color = 'red';
-                    status.textContent = 'Failed to send message. Please try again.';
+                }, function(error) {
+                    console.error('FAILED...', error);
+                    alert('Error sending message.');
                 });
         });
     </script>
