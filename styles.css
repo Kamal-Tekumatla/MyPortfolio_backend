@@ -3,6 +3,28 @@
 
 /*===== VARIABLES CSS =====*/
 :root {
+  --background-white: #ffffff;
+  --background-light: #f5f5f5;
+  --first-color: #4B6EF5;
+  --second-color: #FCA311;
+  --text-color-primary: #1f1f1f;     /* Main text in light mode */
+  --text-color-secondary: #555;      /* Paragraphs/subtext */
+  --border-light: #e0e0e0;
+  --box-shadow-light: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+  --background-white: #1a1a1a;
+  --background-light: #121212;
+  --first-color: #FCA311;
+  --second-color: #4B6EF5;
+  --text-color-primary: #f5f5f5;     /* Main text in dark mode */
+  --text-color-secondary: #aaa;      /* Paragraphs/subtext in dark mode */
+  --border-light: #333;
+  --box-shadow-light: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
+
+:root {
     --hue-color: 224; /* Blue hue */
     --first-color: hsl(var(--hue-color), 89%, 60%);
     --second-color: hsl(var(--hue-color), 56%, 12%);
@@ -60,14 +82,16 @@ html {
 }
 
 body {
-    margin: calc(var(--header-height)) 0 0 0; /* Account for fixed header */
+    margin: calc(var(--header-height)) 0 0 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     color: var(--text-color-primary);
     background-color: var(--background-light);
-    line-height: 1.7; /* Improved line height for readability */
+    line-height: 1.7;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 h1, h2, h3, h4, p {
     margin: 0;
@@ -83,6 +107,22 @@ a {
     text-decoration: none;
     color: inherit;
     transition: color var(--transition-duration) ease-in-out;
+}
+
+a:hover {
+    color: var(--first-color);
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-color-primary);
+}
+
+p {
+    color: var(--text-color-secondary);
+}
+
+a {
+    color: var(--text-color-primary);
 }
 
 a:hover {
@@ -641,3 +681,68 @@ img {
         margin-top: 0; /* Remove top margin on larger screens */
     }
 }
+/* ===== DARK MODE STYLES ===== */
+html[data-theme="dark"] {
+    --text-color-primary: #e2e8f0;
+    --text-color-secondary: #a0aec0;
+    --background-light: #1a202c;
+    --background-white: #2d3748;
+    --box-shadow-light: 0 1px 3px 0 rgba(255, 255, 255, 0.05), 0 1px 2px -1px rgba(255, 255, 255, 0.03);
+    --border-light: #4a5568;
+}
+
+/* Optional: Add dark mode transition */
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-toggle {
+  background-color: var(--background-white);
+  color: var(--text-color-primary);
+  border: 1px solid var(--border-light);
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--box-shadow-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dark-toggle:hover {
+  background-color: var(--first-color);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.dark-toggle .icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+[data-theme='dark'] .dark-toggle {
+  background-color: var(--background-light);
+  color: var(--text-color-primary);
+  border: 1px solid var(--second-color);
+}
+
+[data-theme='dark'] .dark-toggle:hover {
+  background-color: var(--second-color);
+  color: #1a202c;
+}
+/* Default light mode styles */
+h2 {
+  color: #333; /* Dark color for light mode */
+}
+
+/* Dark mode specific styles */
+[data-theme="dark"] h2 {
+  color: #fff; /* Light color for dark mode */
+}
+
+
+
