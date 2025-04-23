@@ -335,9 +335,8 @@ img {
 }
 
 .projects-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    list-style: none; /* Ensure no bullet points */
+    padding: 0; /* Remove default padding */
 }
 
 .project-item {
@@ -345,6 +344,11 @@ img {
     padding: 1.5rem;
     border-radius: var(--border-radius-base);
     box-shadow: var(--box-shadow-light);
+    margin-bottom: 2rem; /* Add spacing between projects */
+}
+
+.project-item:last-child {
+    margin-bottom: 0; /* Remove bottom margin for the last project */
 }
 
 .project-item h3 {
@@ -500,4 +504,8 @@ img {
     .container {
         max-width: 1200px;
     }
+}
+/* Adjust scroll margin for fixed header */
+:target {
+    scroll-margin-top: var(--header-height); /* Adjust if you have extra top padding on sections */
 }
