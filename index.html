@@ -12,7 +12,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // Replace with your actual EmailJS Public Key
+            emailjs.init('WRLkJ-Pxt6ivw158-'); // Replace with your actual EmailJS Public Key
         })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -215,7 +215,7 @@
                 message: form.elements.message.value
             };
 
-            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', data)
+            emailjs.send('service_6xh9tpp', 'template_usx1hqw', data)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     alert('Message sent successfully!');
