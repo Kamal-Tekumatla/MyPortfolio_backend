@@ -4,9 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tekumatla Kamalakar | QA Engineer</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        /* Reset & Basics */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f9f9f9;
+            padding-top: 100px;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        header h1 {
+            margin-bottom: 5px;
+            color: #007bff;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #007bff;
+        }
+        section {
+            padding: 50px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .profile {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #007bff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .skills i {
+            font-size: 30px;
+            margin-right: 15px;
+            color: #007bff;
+        }
+        .hire-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+        .hire-btn:hover {
+            background-color: #0056b3;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #form-status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
     <script type="text/javascript">
         (function() {
             emailjs.init('WRLkJ-Pxt6ivw158-'); // Replace with your EmailJS Public Key
@@ -26,13 +119,13 @@
         </nav>
     </header>
 
-    <section id="home" style="text-align: center; padding-top: 80px;">
-		<img src="Portfolio_Profile_v2.jpeg" alt="Kamalakar" class="profile">
+    <section id="home" style="text-align: center;">
+        <img src="Portfolio_Profile_v2.jpeg" alt="Kamalakar" class="profile">
     </section>
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Results-driven and detail-oriented Automation Tester with 3 years of experience in manual testing (1 year relevant in automation) and designing, developing, and executing automated test scripts to ensure the highest standards of software quality. Expertise in Java, Selenium, TestNG, and API testing. Strong track record of identifying defects and collaborating with development teams to improve software delivery. Committed to ensuring defect-free software and enhancing testing processes for continuous improvement.</p>
+        <p>Results-driven and detail-oriented Automation Tester with 3 years of experience in manual testing (1 year relevant in automation)...</p>
     </section>
 
     <section id="skills">
@@ -59,30 +152,9 @@
     <section id="projects">
         <h2>Projects</h2>
         <ul>
-            <li>
-                <strong>Caratred Technologies | March 2023 - November 2024</strong>
-                <p><strong>Projects:</strong> EzyGST & EzyInvoicing</p>
-                <p>As a QA Engineer at Caratred Technologies from March 2023 to November 2024, I played a vital role in ensuring the quality of EzyGST and EzyInvoicing, critical financial management applications. My core responsibility was to deliver reliable and user-friendly software through meticulous functional testing. My contributions included:</p>
-                <ul>
-                    <li>Requirement Analysis: Deeply analyzing and understanding business requirements and user stories to create comprehensive test plans and functional test cases.</li>
-                    <li>Functional Test Case Development: Designing and executing detailed functional test cases to validate that application functionalities met the specified requirements and user expectations.</li>
-                    <li>Test Execution & Defect Reporting: Executing manual test cases, identifying, documenting, and tracking defects using bug tracking systems (e.g., Jira), and providing clear, concise defect reports.</li>
-                    <li>Regression Testing: Performing thorough regression testing to ensure that new features and bug fixes did not negatively impact existing functionalities.</li>
-                    <li>Collaboration & Communication: Working closely with developers, product managers, and business analysts to clarify requirements, provide feedback, and ensure timely resolution of defects.</li>
-                    <li>Test Documentation: Maintaining detailed and organized test documentation, ensuring traceability between requirements, test cases, and defects.</li>
-                
-					</ul>
-            </li>
-            <li>
-                <strong>Aodh Intelligence Pvt Ltd | October 2021 - February 2023</strong>
-                <p><strong>Role:</strong> QA Tester</p>
-                <p><strong>Location:</strong> Madhapur, Hyderabad</p>
-                <p><strong>Technologies Used:</strong> Selenium, TestNG, Java, API Testing, JIRA, Git</p>
-                <p>This project involved testing an AI-based diagnostic system for respiratory diseases. The system used machine learning models to analyze patient data and provide real-time diagnostic assistance to healthcare professionals. As a QA Tester, my role was to ensure that the system functioned correctly across all modules, including data input, AI prediction, and result presentation, while maintaining compliance with healthcare regulations.</p>
-            </li>
-            <li>Built an end-to-end Test Automation Framework using Selenium, Java, TestNG.</li>
-            <li>Integrated Cucumber for BDD with detailed reporting.</li>
-            <li>Implemented Git for source control and CI with Jenkins.</li>
+            <li><strong>Caratred Technologies</strong> | March 2023 - Nov 2024</li>
+            <li><strong>Aodh Intelligence Pvt Ltd</strong> | Oct 2021 - Feb 2023</li>
+            <li>Built end-to-end automation framework using Selenium, Java, TestNG, Cucumber, Jenkins</li>
         </ul>
     </section>
 
@@ -95,19 +167,19 @@
         <h2>Contact</h2>
         <p><strong>Phone:</strong> 8096074184</p>
         <p><strong>Email:</strong> kamaltekumatla9296@gmail.com</p>
-        <p><strong>Location:</strong> Shamshabad, Hyderabad, Telangana, India</p>
+        <p><strong>Location:</strong> Shamshabad, Hyderabad, Telangana</p>
         <form class="contact-form">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
             <button class="hire-btn" type="submit">Send Message</button>
+            <p id="form-status"></p>
         </form>
     </section>
 
     <script>
         document.querySelector('.contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
-
             const form = event.target;
             const data = {
                 name: form.elements.name.value,
@@ -115,14 +187,16 @@
                 message: form.elements.message.value
             };
 
-            emailjs.send('service_6xh9tpp', 'template_usx1hqw', data) // Replace with your Service ID and Template ID
+            const status = document.getElementById('form-status');
+
+            emailjs.send('service_6xh9tpp', 'template_usx1hqw', data)
                 .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    alert('Message sent successfully!');
+                    status.style.color = 'green';
+                    status.textContent = 'Message sent successfully!';
                     form.reset();
                 }, function(error) {
-                    console.error('FAILED...', error);
-                    alert('Error sending message.');
+                    status.style.color = 'red';
+                    status.textContent = 'Failed to send message. Please try again.';
                 });
         });
     </script>
