@@ -1,119 +1,124 @@
-html {
-    scroll-behavior: smooth;
-}
+/* Enhanced Portfolio CSS with Advanced Effects */
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    background: linear-gradient(135deg, #e0e5ec, #f0f4f8);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f4;
     color: #333;
 }
 
 header {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url('https://images.unsplash.com/photo-1531497865143-2814f6b8a69a?auto=format&fit=crop&w=1950&q=80') 
-                no-repeat center center;
-    background-size: cover;
-    color: white;
-    padding: 100px 20px; /* Increased padding */
+    padding: 40px 20px;
     text-align: center;
-    position: relative;
-}
-
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Slightly adjusted overlay */
-    z-index: 1;
-}
-
-header * {
-    position: relative;
-    z-index: 2;
-}
-
-nav {
-    margin-top: 25px; /* Added spacing */
-}
-
-nav a {
     color: white;
-    margin: 0 12px; /* Adjusted horizontal spacing */
-    text-decoration: none;
-    font-weight: 500; /* Adjusted font weight */
-    background: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
-    padding: 10px 20px; /* Adjusted padding */
-    border-radius: 6px;
-    transition: background 0.3s ease, transform 0.2s ease; /* Added transform transition */
-    display: inline-block; /* Ensures proper alignment */
+    background: linear-gradient(-45deg, #2c3e50, #4ca1af, #2c3e50, #4ca1af);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
 }
 
-nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px); /* Slight lift on hover */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 section {
-    padding: 40px; /* Increased padding */
-    max-width: 900px;
-    margin: 40px auto; /* Increased margin */
-    background: white;
-    border-radius: 15px; /* Increased border radius */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
+    margin: 40px auto;
+    padding: 40px;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 16px;
+    transition: all 0.3s ease-in-out;
 }
 
-img.profile {
-    width: 220px; /* Slightly larger image */
-    height: auto;
-    border-radius: 20px; /* Increased border radius */
-    border: none;
-    display: block;
-    margin: 30px auto; /* Increased margin */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
-    object-fit: cover;
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.15);
 }
 
-.skills i {
-    margin: 20px; /* Increased margin */
-    font-size: 30px; /* Increased font size */
-    color: #444; /* Slightly darker color */
-}
-
-.contact-form input, .contact-form textarea {
-    width: calc(100% - 24px); /* Adjusted width */
-    padding: 14px; /* Increased padding */
-    margin: 14px 0; /* Increased margin */
-    border: 1px solid #ccc; /* Slightly darker border */
-    border-radius: 8px; /* Increased border radius */
-    font-size: 16px;
+h1, h2, h3 {
+    margin-bottom: 20px;
 }
 
 .hire-btn {
-    background: #4CAF50;
+    background-color: #4CAF50;
     color: white;
-    padding: 14px 30px; /* Increased padding */
+    padding: 15px 30px;
     border: none;
-    text-decoration: none;
-    border-radius: 8px; /* Increased border radius */
+    border-radius: 25px;
     font-size: 16px;
-    transition: background 0.3s ease, transform 0.2s ease; /* Added transform transition */
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .hire-btn:hover {
-    background: #45a049;
-    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 0 15px #4CAF50;
+    transform: scale(1.05);
 }
 
-#projects ul li {
-    margin-bottom: 35px; /* Adjusted margin */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
 }
 
-#projects ul li:last-child {
-    margin-bottom: 0;
+.profile-img:hover {
+    transform: perspective(800px) rotateY(5deg);
+}
+
+.skills i {
+    font-size: 40px;
+    margin: 15px;
+    color: #333;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.skills i:hover {
+    color: #00f0ff;
+    text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    section {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .hire-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* AOS Animation Defaults */
+[data-aos] {
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: 0.6s;
+    transition-timing-function: ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(20px);
+}
+
+[data-aos="fade-up"].aos-animate {
+    transform: translateY(0);
 }
