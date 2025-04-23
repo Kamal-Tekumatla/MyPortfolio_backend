@@ -34,6 +34,7 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 16px;
     transition: all 0.3s ease-in-out;
+    clear: both; /* Added to prevent overlap */
 }
 
 section:hover {
@@ -95,6 +96,7 @@ footer {
     section {
         width: 90%;
         padding: 20px;
+        margin-bottom: 30px; /* Ensure space on mobile */
     }
 
     .hire-btn {
