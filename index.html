@@ -8,7 +8,8 @@
     <meta name="keywords" content="QA Engineer, Automation Tester, Selenium, Java, TestNG, API Testing, Portfolio, Tekumatla Kamalakar">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
             emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // Replace with your actual EmailJS Public Key
@@ -39,21 +40,31 @@
 
     <main>
         <section id="home" class="hero-section">
-            <div class="container">
-                <img src="Portfolio_Profile_v2.jpeg" alt="Profile picture of Kamalakar" class="profile-image">
-                <h2 class="hero-title">Hi, I'm Kamalakar Tekumatla</h2>
-                <p class="hero-subtitle">Building Quality Software Through Automation & Rigorous Testing</p>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h2 class="hero-title">Hi, I'm Kamalakar Tekumatla</h2>
+                    <p class="hero-subtitle">Building Quality Software Through Automation & Rigorous Testing</p>
+                    <a href="#contact" class="button">Contact</a>
+                    <div class="hero-social">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
+                <div class="hero-image-container">
+                    <img src="Portfolio_Profile_updated.jpeg" alt="Profile picture of Kamalakar" class="hero-image">
+                    <div class="hero-image-shape"></div>
+                </div>
+            </div>
         </section>
 
-        <section id="about" class="about-section">
+        <section id="about" class="about-section section">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <p class="about-description">Results-driven and detail-oriented Automation Tester with 3 years of experience in manual testing (1 year relevant in automation) and designing, developing, and executing automated test scripts to ensure the highest standards of software quality. Expertise in Java, Selenium, TestNG, and API testing. Strong track record of identifying defects and collaborating with development teams to improve software delivery. Committed to ensuring defect-free software and enhancing testing processes for continuous improvement.</p>
-                </div>
+            </div>
         </section>
 
-        <section id="skills" class="skills-section">
+        <section id="skills" class="skills-section section">
             <div class="container">
                 <h2 class="section-title">Skills</h2>
                 <div class="skills-grid">
@@ -63,14 +74,14 @@
                             <li>Selenium WebDriver</li>
                             <li>Java</li>
                             <li>TestNG</li>
-                            </ul>
+                        </ul>
                     </div>
                     <div class="skill-category">
                         <h3>API Testing</h3>
                         <ul>
                             <li>RESTful APIs</li>
                             <li>Postman</li>
-                            </ul>
+                        </ul>
                     </div>
                     <div class="skill-category">
                         <h3>Testing Methodologies</h3>
@@ -94,17 +105,17 @@
                             <li>Linux</li>
                         </ul>
                     </div>
-                    </div>
+                </div>
                 <div class="skills-icons">
                     <i class="fab fa-java" aria-hidden="true" title="Java"></i>
                     <i class="fab fa-github" aria-hidden="true" title="GitHub"></i>
                     <i class="fas fa-bug" aria-hidden="true" title="Bug Tracking"></i>
                     <i class="fas fa-cogs" aria-hidden="true" title="Automation"></i>
-                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="projects" class="projects-section">
+        <section id="projects" class="projects-section section">
             <div class="container">
                 <h2 class="section-title">Projects</h2>
                 <ul class="projects-list">
@@ -121,13 +132,13 @@
                             <li>Test Documentation: Maintaining detailed and organized test documentation, ensuring traceability between requirements, test cases, and defects.</li>
                         </ul>
                         <p class="technologies-used">Technologies: Manual Testing, Functional Testing, Jira</p>
-                        </li>
+                    </li>
                     <li class="project-item">
                         <h3>Aodh Intelligence Pvt Ltd | October 2021 - February 2023</h3>
                         <h4>Role: QA Tester</h4>
                         <p>This project involved testing an AI-based diagnostic system for respiratory diseases. The system used machine learning models to analyze patient data and provide real-time diagnostic assistance to healthcare professionals. As a QA Tester, my role was to ensure that the system functioned correctly across all modules, including data input, AI prediction, and result presentation, while maintaining compliance with healthcare regulations.</p>
                         <p class="technologies-used">Technologies: Selenium, TestNG, Java, API Testing, JIRA, Git</p>
-                        </li>
+                    </li>
                     <li class="project-item">
                         <h3>Personal Project: Test Automation Framework</h3>
                         <p>Built an end-to-end Test Automation Framework using Selenium, Java, TestNG.</p>
@@ -136,12 +147,12 @@
                             <li>Implemented Git for source control and CI with Jenkins.</li>
                         </ul>
                         <p class="technologies-used">Technologies: Selenium, Java, TestNG, Cucumber, Jenkins, Git</p>
-                        </li>
+                    </li>
                 </ul>
             </div>
         </section>
 
-        <section id="resume" class="resume-section">
+        <section id="resume" class="resume-section section">
             <div class="container">
                 <h2 class="section-title">Resume</h2>
                 <p class="resume-download">
@@ -150,7 +161,7 @@
             </div>
         </section>
 
-        <section id="contact" class="contact-section">
+        <section id="contact" class="contact-section section">
             <div class="container">
                 <h2 class="section-title">Contact</h2>
                 <div class="contact-info">
@@ -180,7 +191,7 @@
     <footer class="main-footer">
         <div class="container">
             <p>&copy; 2025 Tekumatla Kamalakar. All rights reserved.</p>
-            </div>
+        </div>
     </footer>
 
     <script>
@@ -194,7 +205,7 @@
                 message: form.elements.message.value
             };
 
-            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', data) // Replace with your actual Service and Template IDs
+            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', data)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     alert('Message sent successfully!');
