@@ -163,19 +163,43 @@
         <p><a class="hire-btn" href="./Kamalakar_Qa_Resume_April_2025.pdf" download>Download My Resume</a></p>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p><strong>Phone:</strong> 8096074184</p>
-        <p><strong>Email:</strong> kamaltekumatla9296@gmail.com</p>
-        <p><strong>Location:</strong> Shamshabad, Hyderabad, Telangana</p>
-        <form class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button class="hire-btn" type="submit">Send Message</button>
-            <p id="form-status"></p>
-        </form>
-    </section>
+	<section id="contact">
+	  <h2>Contact</h2>
+	  <p><strong>📞 Phone:</strong> 8096074184</p>
+	  <p><strong>📧 Email:</strong> kamaltekumatla9296@gmail.com</p>
+	  <p><strong>📍 Location:</strong> Shamshabad, Hyderabad, Telangana, India</p>
+
+	  <form class="contact-form">
+	    <div class="floating-label">
+	      <input type="text" name="name" placeholder=" " required />
+	      <label>Your Name</label>
+	    </div>
+	    <div class="floating-label">
+	      <input type="email" name="email" placeholder=" " required />
+	      <label>Your Email</label>
+	    </div>
+	    <div class="floating-label">
+	      <textarea name="message" placeholder=" " required></textarea>
+	      <label>Your Message</label>
+	    </div>
+	    <button class="hire-btn" type="submit">Send Message</button>
+	  </form>
+
+	  <div id="form-status"></div>
+
+	  <!-- Toggle Dark Mode -->
+	  <div class="toggle-container">
+	    <label class="switch">
+	      <input type="checkbox" id="darkToggle">
+	      <span class="slider round"></span>
+	    </label>
+	    <span class="toggle-label">Dark Mode</span>
+	  </div>
+	</section>
+
+	<!-- Font Awesome for Icons -->
+	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 
     <script>
         document.querySelector('.contact-form').addEventListener('submit', function(event) {
