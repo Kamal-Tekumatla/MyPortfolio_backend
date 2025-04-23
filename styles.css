@@ -320,13 +320,36 @@ img {
     }
 }
 /*===== ABOUT SECTION =====*/
-..about-grid-enhanced {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 2rem;
+.about-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--background-white);
+}
+
+.about-section .about-description {
+    line-height: 1.8;
+    color: var(--text-color-secondary);
+    margin-bottom: var(--mb-4);
+    font-size: var(--normal-font-size);
+}
+
+@media screen and (min-width: 768px) {
+    .about-section .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        align-items: center;
+    }
+
+    .about-section .section-title {
+        text-align: left;
+    }
+
+    .about-section .section-title::after {
+        left: 0;
+        margin-right: auto;
+    }
+}
 
 /*===== SKILLS SECTION =====*/
 .skills-section {
