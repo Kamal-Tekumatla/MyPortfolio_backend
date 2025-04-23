@@ -107,17 +107,19 @@
     </script>
 </head>
 <body>
-    <header>
-        <h1>Tekumatla Kamalakar</h1>
-        <p>QA Engineer | Automation Enthusiast | Functional Test Engineer</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#resume">Resume</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+	<header class="header">
+	    <div class="container">
+	        <h1 class="name">Tekumatla Kamalakar</h1>
+	        <p class="tagline">QA Engineer • Automation Enthusiast • Functional Test Engineer</p>
+	        <nav class="navbar">
+	            <a href="#about">About</a>
+	            <a href="#skills">Skills</a>
+	            <a href="#projects">Projects</a>
+	            <a href="#resume">Resume</a>
+	            <a href="#contact">Contact</a>
+	        </nav>
+	    </div>
+	</header>
 
     <section id="home" style="text-align: center;">
         <img src="Portfolio_Profile_updated.jpeg" alt="Kamalakar" class="profile">
@@ -164,38 +166,19 @@
         <p><a class="hire-btn" href="./Kamalakar_Qa_Resume_April_2025.pdf" download>Download My Resume</a></p>
     </section>
 
-	<section id="contact">
-	  <h2>Contact</h2>
-	  <p><strong>📞 Phone:</strong> 8096074184</p>
-	  <p><strong>📧 Email:</strong> kamaltekumatla9296@gmail.com</p>
-	  <p><strong>📍 Location:</strong> Shamshabad, Hyderabad, Telangana, India</p>
-
-	  <form class="contact-form">
-	    <div class="floating-label">
-	      <input type="text" name="name" placeholder=" " required />
-	      <label>Your Name</label>
+	<section id="contact" class="contact-section">
+	    <h2>Contact</h2>
+	    <div class="contact-details">
+	        <p><strong>Phone:</strong> 8096074184</p>
+	        <p><strong>Email:</strong> kamaltekumatla9296@gmail.com</p>
+	        <p><strong>Location:</strong> Shamshabad, Hyderabad, Telangana, India</p>
 	    </div>
-	    <div class="floating-label">
-	      <input type="email" name="email" placeholder=" " required />
-	      <label>Your Email</label>
-	    </div>
-	    <div class="floating-label">
-	      <textarea name="message" placeholder=" " required></textarea>
-	      <label>Your Message</label>
-	    </div>
-	    <button class="hire-btn" type="submit">Send Message</button>
-	  </form>
-
-	  <div id="form-status"></div>
-
-	  <!-- Toggle Dark Mode -->
-	  <div class="toggle-container">
-	    <label class="switch">
-	      <input type="checkbox" id="darkToggle">
-	      <span class="slider round"></span>
-	    </label>
-	    <span class="toggle-label">Dark Mode</span>
-	  </div>
+	    <form class="contact-form">
+	        <input type="text" name="name" placeholder="Your Name" required>
+	        <input type="email" name="email" placeholder="Your Email" required>
+	        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+	        <button class="btn" type="submit">Send Message</button>
+	    </form>
 	</section>
 
 	<!-- Font Awesome for Icons -->
