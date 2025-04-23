@@ -251,9 +251,8 @@ nav a:hover::after {
 }
 
 #projects ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid layout for projects */
-    gap: 1.5rem;
+    list-style: none; /* Ensure no bullet points */
+    padding: 0; /* Remove default padding */
 }
 
 #projects ul li {
@@ -261,8 +260,11 @@ nav a:hover::after {
     padding: 1.5rem;
     border-radius: var(--border-radius-base);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem; /* Add spacing between projects */
 }
-
+#projects ul li:last-child {
+    margin-bottom: 0; /* Remove bottom margin for the last project */
+}
 #projects ul li strong {
     display: block;
     font-size: var(--normal-font-size);
