@@ -1,120 +1,124 @@
-/* Enhanced Portfolio CSS with Advanced Effects */
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
+/*===== VARIABLES CSS =====*/
 :root {
+    --hue-color: 224; /* Blue hue */
+    --first-color: hsl(var(--hue-color), 89%, 60%);
+    --second-color: hsl(var(--hue-color), 56%, 12%);
+    --body-font: "Poppins", sans-serif;
+    --big-font-size: 2rem;
+    --h2-font-size: 1.5rem; /* Adjusted for your content */
+    --normal-font-size: 1rem;
+    --smaller-font-size: 0.85rem; /* Adjusted for readability */
+    --font-semi: 600;
+    --mb-2: 1rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --mb-6: 3rem;
+    --z-back: -10;
+    --z-fixed: 100;
+
+    /* Your existing color scheme - will try to blend */
     --primary-color: #4CAF50; /* Green */
-    --secondary-color: #007bff; /* Blue */
     --text-color-primary: #333;
     --text-color-secondary: #555;
     --background-light: #f4f4f4;
-    --background-section: rgba(255, 255, 255, 0.8); /* Slightly more opaque section background */
-    --box-shadow-light: 0 8px 32px rgba(31, 38, 135, 0.1); /* Subtler shadow */
-    --border-light: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border */
+    --background-section: rgba(255, 255, 255, 0.8);
+    --box-shadow-light: 0 8px 32px rgba(31, 38, 135, 0.1);
+    --border-light: 1px solid rgba(255, 255, 255, 0.3);
     --transition-duration: 0.3s;
     --border-radius-base: 12px;
+}
+
+@media screen and (min-width: 968px) {
+    :root {
+        --big-font-size: 3rem; /* Adjusted for larger screens */
+        --h2-font-size: 2rem;
+        --normal-font-size: 1.1rem;
+        --smaller-font-size: 0.9rem;
+    }
+}
+
+/*===== BASE =====*/
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: var(--background-light);
-    color: var(--text-color-primary);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: var(--second-color); /* Using the expert's text color */
+    background: var(--background-light); /* Your background */
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scrollbar */
+    overflow-x: hidden;
 }
 
-/* Header with Subtle Pattern Overlay */
-header {
-    padding: 50px 20px;
-    text-align: center;
-    color: white;
-    background: linear-gradient(-45deg, #2c3e50, #4ca1af, #2c3e50, #4ca1af);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    position: relative; /* For overlay positioning */
+h1, h2, h3, p {
+    margin: 0;
 }
 
-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('path/to/subtle-pattern.png'); /* Replace with your image path */
-    background-repeat: repeat;
-    opacity: 0.1; /* Subtle overlay */
-    pointer-events: none; /* Allow clicks through */
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-header h1 {
-    margin-bottom: 10px;
-    font-size: 2.5em;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    position: relative; /* Ensure text is above overlay */
-}
-
-header p {
-    font-size: 1.1em;
-    color: #eee;
-    margin-bottom: 20px;
-    position: relative; /* Ensure text is above overlay */
-}
-
-nav {
-    position: relative; /* Ensure nav is above overlay */
-}
-
-nav a {
-    color: white;
+a {
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.1em;
-    transition: color var(--transition-duration) ease-in-out;
 }
 
-nav a:hover {
-    color: var(--secondary-color);
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-section {
-    margin: 60px auto; /* Increased vertical margin */
-    padding: 50px; /* Increased padding */
-    width: 85%; /* Slightly wider */
-    background: var(--background-section);
-    box-shadow: var(--box-shadow-light);
+/*===== CLASS CSS ===== */
+.section-title {
+    position: relative;
+    font-size: var(--h2-font-size);
+    color: var(--first-color); /* Using the expert's primary color */
+    margin-top: var(--mb-2);
+    margin-bottom: var(--mb-4);
+    text-align: center;
+}
+
+.section-title::after {
+    position: absolute;
+    content: "";
+    width: 64px;
+    height: 0.18rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 2rem;
+    background-color: var(--first-color); /* Using the expert's primary color */
+}
+
+.section {
+    margin: 60px auto; /* Your margin */
+    padding: 50px; /* Your padding */
+    width: 85%; /* Your width */
+    background: var(--background-section); /* Your section background */
+    box-shadow: var(--box-shadow-light); /* Your shadow */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: var(--border-light);
-    border-radius: var(--border-radius-base);
+    border: var(--border-light); /* Your border */
+    border-radius: var(--border-radius-base); /* Your border radius */
     transition: transform var(--transition-duration) ease-in-out, box-shadow var(--transition-duration) ease-in-out;
     clear: both;
-    position: relative; /* For potential background graphics */
-    overflow: hidden; /* Clip any overflowing graphics */
+    position: relative;
+    overflow: hidden;
+    padding-top: 3rem; /* Expert's section top padding */
+    padding-bottom: 2rem; /* Expert's section bottom padding */
 }
-
-/* Subtle Background Graphic for Sections */
-/* section::before {
-    content: "";
-    position: absolute;
-    top: 10%;
-    right: 10%;
-    width: 80px;
-    height: 80px;
-    background-image: url('path/to/abstract-shape.png'); /* Replace with your image path */
-    background-repeat: no-repeat;
-    background-size: contain;
-    opacity: 0.05;
-    pointer-events: none;
-    z-index: -1; /* Place behind content */
-} */
 
 section:hover {
     transform: translateY(-8px);
@@ -123,26 +127,77 @@ section:hover {
 
 h1, h2, h3 {
     margin-bottom: 25px;
-    color: var(--text-color-primary);
+    color: var(--text-color-primary); /* Your heading color */
 }
 
-.hire-btn {
-    background-color: var(--primary-color);
+/* Navigation */
+header {
+    padding: 2rem 20px; /* Adjusted header padding */
+    text-align: center;
     color: white;
-    padding: 18px 35px;
-    border: none;
-    border-radius: 30px;
+    background: linear-gradient(-45deg, #2c3e50, #4ca1af, #2c3e50, #4ca1af);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    position: fixed; /* Using fixed positioning like the expert's nav */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-fixed);
+    box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15); /* Expert's nav shadow */
+}
+
+nav {
+    height: auto; /* Adjust height as needed */
+    display: flex;
+    justify-content: center; /* Center navigation links */
+    align-items: center;
+    font-weight: var(--font-semi);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
     font-size: 1.1em;
+    transition: color var(--transition-duration) ease-in-out;
+    position: relative; /* For potential underline */
+}
+
+nav a:hover {
+    color: var(--first-color); /* Expert's hover color */
+}
+
+nav a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 0.18rem;
+    background-color: var(--first-color); /* Expert's underline color */
+}
+
+/* Hire Button */
+.hire-btn {
+    display: inline-block; /* Expert's button display */
+    background-color: var(--first-color); /* Expert's button color */
+    color: white;
+    padding: 0.75rem 2.5rem; /* Expert's button padding */
+    font-weight: var(--font-semi);
+    border-radius: 0.5rem; /* Expert's button border radius */
+    transition: 0.3s;
+    border: none; /* Remove default button border */
+    font-size: 1em; /* Adjust font size */
     cursor: pointer;
-    transition: all var(--transition-duration) ease;
-    box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3); /* Your shadow */
 }
 
 .hire-btn:hover {
-    box-shadow: 0 0 20px var(--primary-color);
-    transform: scale(1.08);
+    box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15); /* Expert's hover shadow */
+    transform: scale(1.05); /* Your hover transform */
 }
 
+/* Profile Image */
 .profile-img {
     width: 180px;
     height: 180px;
@@ -155,6 +210,7 @@ h1, h2, h3 {
     transform: perspective(1000px) rotateY(10deg) scale(1.02);
 }
 
+/* Skills Section */
 .skills {
     display: flex;
     justify-content: center;
@@ -164,9 +220,9 @@ h1, h2, h3 {
 }
 
 .skills i {
-    font-size: 50px;
-    margin: 20px;
-    color: var(--text-color-secondary);
+    font-size: 2.5rem; /* Adjusted skill icon size */
+    margin: 15px;
+    color: var(--first-color); /* Expert's skill icon color */
     transition: color var(--transition-duration), text-shadow var(--transition-duration);
 }
 
@@ -175,62 +231,15 @@ h1, h2, h3 {
     text-shadow: 0 0 15px var(--secondary-color), 0 0 30px var(--secondary-color);
 }
 
+/* Footer */
 footer {
+    background-color: var(--second-color); /* Expert's footer background */
+    color: #fff; /* Expert's footer text color */
     text-align: center;
-    padding: 30px;
-    font-size: 0.9em;
-    color: #777;
-}
-
-@media (max-width: 768px) {
-    section {
-        width: 95%;
-        padding: 30px;
-        margin-bottom: 40px;
-    }
-
-    .hire-btn {
-        padding: 12px 25px;
-        font-size: 1em;
-    }
-
-    .profile-img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .skills i {
-        font-size: 40px;
-        margin: 15px;
-    }
-}
-
-/* AOS Animation Defaults */
-[data-aos] {
-    opacity: 0;
-    transition-property: transform, opacity;
-    transition-duration: 0.7s; /* Slightly slower animation */
-    transition-timing-function: ease-out; /* Different easing */
-}
-
-[data-aos].aos-animate {
-    opacity: 1;
-}
-
-[data-aos="fade-up"] {
-    transform: translateY(30px); /* More pronounced fade-up */
-}
-
-[data-aos="fade-up"].aos-animate {
-    transform: translateY(0);
-}
-
-[data-aos="slide-right"] {
-    transform: translateX(-50px);
-}
-
-[data-aos="slide-right"].aos-animate {
-    transform: translateX(0);
+    font-weight: var(--font-semi);
+    padding: 2rem 0;
+    font-size: var(--normal-font-size); /* Adjust font size */
+    margin-top: var(--mb-6); /* Add some top margin */
 }
 
 /* Contact Form Styles */
@@ -240,14 +249,14 @@ footer {
 
 .contact-form {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax */
-    gap: 25px; /* Increased gap */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
     margin-top: 40px;
-    max-width: 700px; /* Wider form */
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    padding: 30px; /* Increased padding */
-    background: rgba(255, 255, 255, 0.85); /* Slightly more opaque */
+    padding: 30px;
+    background: var(--background-section);
     border-radius: var(--border-radius-base);
     box-shadow: var(--box-shadow-light);
     backdrop-filter: blur(12px);
@@ -257,36 +266,38 @@ footer {
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
-    padding: 15px;
-    border: 1px solid #ddd; /* Lighter border */
-    border-radius: 10px;
-    font-size: 1em;
+    padding: 1rem; /* Expert's input padding */
+    border: 1.5px solid var(--second-color); /* Expert's input border */
+    border-radius: 0.5rem; /* Expert's input border radius */
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-semi);
     color: var(--text-color-primary);
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition: border-color var(--transition-duration) ease;
+    outline: none;
+    margin-bottom: var(--mb-4);
 }
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
 .contact-form textarea:focus {
-    outline: none;
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+    border-color: var(--first-color); /* Expert's focus color */
+    box-shadow: 0 0 10px rgba(var(--hue-color), 89%, 60%, 0.3); /* Adjusted focus shadow */
 }
 
 .contact-form textarea {
     grid-column: 1 / -1;
-    height: 180px; /* Increased height */
+    height: 180px;
     resize: vertical;
 }
 
 .contact-form .hire-btn {
-    padding: 18px 40px;
-    border-radius: 30px;
-    font-size: 1.1em;
-    box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
+    padding: 1rem 2.5rem; /* Expert's button padding */
+    border-radius: 0.5rem; /* Expert's button radius */
+    font-size: var(--normal-font-size);
+    box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15); /* Expert's button shadow */
 }
 
 .contact-form .hire-btn:hover {
@@ -301,10 +312,10 @@ footer {
 }
 
 #projects ul li {
-    margin-bottom: 45px; /* More prominent spacing */
-    padding-bottom: 30px;
+    margin-bottom: var(--mb-5); /* Using expert's margin */
+    padding-bottom: var(--mb-2); /* Using expert's padding */
     border-bottom: 1px solid #eee;
-    position: relative; /* For potential graphic elements within list items */
+    position: relative;
     overflow: hidden;
 }
 
@@ -315,9 +326,9 @@ footer {
     bottom: 0;
     left: 20px;
     width: 80%;
-    height: 1px;
-    background-color: #ddd;
-    opacity: 0.5;
+    height: 0.18rem; /* Expert's line height */
+    background-color: var(--first-color); /* Expert's line color */
+    opacity: 0.3; /* Adjust opacity */
 }
 
 #projects ul li:last-child {
@@ -327,70 +338,54 @@ footer {
 }
 
 #projects ul li:last-child::after {
-    display: none; /* Hide separator for the last item */
+    display: none;
 }
 
 #projects ul li strong {
     display: block;
-    font-size: 1.2em; /* Slightly larger title */
-    margin-bottom: 10px;
+    font-size: var(--h2-font-size); /* Using expert's heading size */
+    margin-bottom: var(--mb-2);
     color: var(--text-color-primary);
-    position: relative; /* Ensure text is above potential graphics */
+    position: relative;
 }
 
 #projects ul li p {
-    line-height: 1.7; /* Improved line height */
+    line-height: 1.7;
     color: var(--text-color-secondary);
-    margin-bottom: 15px;
+    margin-bottom: var(--mb-4);
+    font-size: var(--normal-font-size); /* Adjust paragraph size */
 }
 
 #projects ul li ul {
     list-style: disc;
     padding-left: 30px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: var(--mb-2);
+    margin-bottom: var(--mb-2);
 }
 
 #projects ul li ul li {
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem; /* Adjust list item margin */
     padding-bottom: 0;
     border-bottom: none;
+    font-size: var(--normal-font-size);
 }
 
 #projects ul li .technologies-used {
     font-style: italic;
     color: #777;
     display: block;
-    margin-top: 15px;
-    font-size: 0.95em;
+    margin-top: var(--mb-2);
+    font-size: var(--smaller-font-size);
 }
-
-/* Example of a subtle graphic element within a project item */
-/* #projects ul li:nth-child(odd)::before {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: -30px;
-    width: 60px;
-    height: 60px;
-    background-color: rgba(var(--primary-color-rgb), 0.05); /* Use RGB for opacity control */
-    border-radius: 50%;
-    z-index: -1;
-}
-
-#projects ul li:nth-child(even)::after {
-    content: "";
-    position: absolute;
-    bottom: 10px;
-    right: -30px;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(var(--secondary-color-rgb), 0.05);
-    border-radius: 50%;
-    z-index: -1;
-} */
 
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Animation Keyframes (if not already present) */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
