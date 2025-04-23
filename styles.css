@@ -1,7 +1,29 @@
-/* ... your existing CSS ... */
+/* Enhanced Portfolio CSS with Advanced Effects */
 
-#projects {
-    /* Keep existing styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+
+header {
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(-45deg, #2c3e50, #4ca1af, #2c3e50, #4ca1af);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+section {
     margin: 40px auto;
     padding: 40px;
     width: 80%;
@@ -12,62 +34,207 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 16px;
     transition: all 0.3s ease-in-out;
-    clear: both;
+    clear: both; /* Added to prevent overlap */
 }
 
-#projects:hover {
+section:hover {
     transform: translateY(-5px);
     box-shadow: 0 16px 32px rgba(0,0,0,0.15);
 }
 
-#projects h2 {
-    margin-bottom: 30px;
-    color: #333;
+h1, h2, h3 {
+    margin-bottom: 20px;
 }
 
+.hire-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hire-btn:hover {
+    box-shadow: 0 0 15px #4CAF50;
+    transform: scale(1.05);
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+
+.profile-img:hover {
+    transform: perspective(800px) rotateY(5deg);
+}
+
+.skills i {
+    font-size: 40px;
+    margin: 15px;
+    color: #333;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.skills i:hover {
+    color: #00f0ff;
+    text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    section {
+        width: 90%;
+        padding: 20px;
+        margin-bottom: 30px; /* Ensure space on mobile */
+    }
+
+    .hire-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* AOS Animation Defaults */
+[data-aos] {
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: 0.6s;
+    transition-timing-function: ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(20px);
+}
+
+[data-aos="fade-up"].aos-animate {
+    transform: translateY(0);
+}
+
+/* Contact Form Styles */
+#contact {
+    text-align: center; /* Center content within the contact section */
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px;
+    margin-top: 30px;
+    max-width: 600px; /* Limit form width */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px; /* Add some padding around the form */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+.contact-form textarea {
+    grid-column: 1 / -1; /* Span full width */
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form .hire-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    grid-column: 1 / -1; /* Span full width */
+    margin-top: 20px;
+}
+
+.contact-form .hire-btn:hover {
+    box-shadow: 0 0 15px #4CAF50;
+    transform: scale(1.05);
+}
+
+/* Projects Section Styles */
 #projects ul {
-    list-style: none; /* Remove default bullet points */
+    list-style: none;
     padding: 0;
 }
 
 #projects ul li {
-    margin-bottom: 40px; /* Add vertical space between projects */
+    margin-bottom: 30px; /* Increased spacing between projects */
     padding-bottom: 20px;
-    border-bottom: 1px solid #eee; /* Subtle separator between projects */
+    border-bottom: 1px solid #eee;
 }
 
 #projects ul li:last-child {
-    border-bottom: none; /* Remove separator for the last project */
+    border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
 }
 
 #projects ul li strong {
-    display: block; /* Make strong elements take full width */
+    display: block;
     font-size: 1.1em;
-    margin-bottom: 5px;
+    margin-bottom: 8px; /* Slightly increased spacing after project title */
     color: #333;
 }
 
 #projects ul li p {
     line-height: 1.6;
     color: #555;
-    margin-bottom: 10px;
+    margin-bottom: 12px; /* Slightly increased spacing after paragraphs */
 }
 
-#projects ul li ul { /* Style the nested lists for responsibilities */
-    list-style: disc; /* Use standard disc bullets for responsibilities */
-    padding-left: 20px;
+#projects ul li ul {
+    list-style: disc;
+    padding-left: 25px; /* Standard indentation for bullet points */
     margin-top: 10px;
+    margin-bottom: 10px; /* Add some space around the bulleted lists */
 }
 
 #projects ul li ul li {
-    margin-bottom: 5px; /* Less vertical space for individual responsibilities */
+    margin-bottom: 5px;
     padding-bottom: 0;
-    border-bottom: none; /* Remove separator for nested list items */
+    border-bottom: none;
 }
 
-#projects ul li .technologies-used { /* If you want to style the "Technologies Used" line */
+#projects ul li .technologies-used {
     font-style: italic;
     color: #777;
+    display: block; /* Make it a block element for better spacing */
+    margin-top: 10px;
 }
