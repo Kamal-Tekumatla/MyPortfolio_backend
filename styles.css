@@ -1113,11 +1113,94 @@ h2 {
     gap: 1rem;
   }
 
-  .main-navigation ul {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
+  /* ========================= MOBILE MENU STYLES START ========================= */
+  .main-navigation {
+    /* Initially hide the full navigation on mobile */
+    display: none;
+    width: 100%;
+    background-color: var(--background-white); /* Ensure background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06); /* Consistent shadow */
+    position: absolute;
+    top: var(--header-height); /* Position below the header */
+    left: 0;
+    z-index: 99; /* Ensure it's above other content */
   }
+
+  .main-navigation.show-menu {
+    /* Class to toggle menu visibility (will be controlled by JavaScript) */
+    display: block;
+  }
+
+  .main-navigation ul {
+    flex-direction: column; /* Stack menu items vertically */
+    align-items: stretch; /* Make items take full width */
+    padding: 1rem; /* Add some padding inside the menu */
+  }
+
+  .main-navigation ul li {
+    margin-left: 0; /* Remove left margin */
+    margin-bottom: 0.75rem; /* Add vertical spacing between items */
+    border-bottom: 1px solid var(--border-light); /* Optional: Separator lines */
+  }
+
+  .main-navigation ul li:last-child {
+    border-bottom: none; /* Remove separator on the last item */
+  }
+
+  .main-navigation ul li a {
+    display: block; /* Make the entire link tappable */
+    padding: 0.75rem 1rem;
+  }
+
+  .main-navigation ul li a::after {
+    /* Remove or modify the underline for mobile */
+    display: none; /* Example: Remove underline on mobile */
+  }
+
+  /* Hamburger Menu Icon */
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu on mobile */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color-primary);
+  }
+
+  /* Initially hide the hamburger menu for larger screens */
+  @media screen and (min-width: 769px) {
+    .hamburger-menu {
+      display: none;
+    }
+
+    .main-navigation {
+      display: block !important; /* Show full navigation on larger screens */
+      position: static;
+      width: auto;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .main-navigation ul {
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+    }
+
+    .main-navigation ul li {
+      margin-left: var(--mb-3);
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    .main-navigation ul li a {
+      display: inline-block;
+      padding: 0;
+    }
+
+    .main-navigation ul li a::after {
+      display: block; /* Show underline on larger screens */
+    }
+  }
+  /* ========================== MOBILE MENU STYLES END ========================== */
 
   .header-titles h1,
   .header-titles .tagline,
